@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drop_Bot — кабинет поставщика</title>
+<script src="https://st.max.ru/js/max-web-app.js"></script>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: -apple-system, 'Segoe UI', Roboto, sans-serif;
+    background:#f4f0fa; padding:16px; min-height:100vh;
+  }
+  h1 { font-size:18px; margin-bottom:4px; color:#1a1a2e; }
+  .sub { font-size:13px; color:#888; margin-bottom:16px; }
+  .grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .tile {
+    background:#fff; border-radius:16px; padding:16px;
+    cursor:pointer; user-select:none;
+    box-shadow:0 1px 3px rgba(0,0,0,.06);
+    transition:transform .08s ease;
+    border:1px solid transparent;
+  }
+  .tile:active { transform:scale(.96); }
+  .tile .icon { font-size:26px; margin-bottom:8px; }
+  .tile .name { font-size:15px; font-weight:600; color:#1a1a2e; margin-bottom:4px; }
+  .tile .desc { font-size:12px; color:#999; line-height:1.35; }
+  .status {
+    margin-top:16px; padding:12px; border-radius:12px;
+    background:#eef7ee; color:#2e7d32; font-size:13px;
+    display:none;
+  }
+  .status.show { display:block; }
+</style>
+</head>
+<body>
+  <h1>🏠 Drop_Bot</h1>
+  <div class="sub">Кабинет поставщика Wildberries</div>
+
+  <div class="grid">
+    <div class="tile" onclick="tap('ИИ-генератор карточек')"> 
+      <div class="icon">✨</div>
+      <div class="name">ИИ-генератор карточек</div>
+      <div class="desc">Фото и описание для маркетплейсов</div>
+    </div>
+    <div class="tile" onclick="tap('Личный кабинет')">
+      <div class="icon">👤</div>
+      <div class="name">Личный кабинет</div>
+      <div class="desc">Магазины и настройки</div>
+    </div>
+    <div class="tile" onclick="tap('Товары и остатки')">
+      <div class="icon">📦</div>
+      <div class="name">Товары и остатки</div>
+      <div class="desc">Остатки, избранное</div>
+    </div>
+    <div class="tile" onclick="tap('Отчеты')">
+      <div class="icon">📊</div>
+      <div class="name">Отчеты</div>
+      <div class="desc">Заказы, выкупы, возвраты</div>
+    </div>
+    <div class="tile" onclick="tap('Проверка товара в поиске')">
+      <div class="icon">🔍</div>
+      <div class="name">Проверка товара в поиске</div>
+      <div class="desc">Позиции по фразам</div>
+    </div>
+    <div class="tile" onclick="tap('Экспорт в таблицы')">
+      <div class="icon">📤</div>
+      <div class="name">Экспорт в таблицы</div>
+      <div class="desc">Выгрузка в Google Таблицы</div>
+    </div>
+    <div class="tile" onclick="tap('Тарифы')">
+      <div class="icon">💰</div>
+      <div class="name">Тарифы</div>
+      <div class="desc">Стоимость и условия</div>
+    </div>
+    <div class="tile" onclick="tap('Баланс')">
+      <div class="icon">💳</div>
+      <div class="name">Баланс</div>
+      <div class="desc">Пополнение и списания</div>
+    </div>
+  </div>
+
+  <div class="status" id="status"></div>
+
+<script>
+  function tap(section) {
+    const s = document.getElementById('status');
+    s.textContent = '🚧 Раздел «' + section + '» в разработке — скоро подключим данные.';
+    s.classList.add('show');
+  }
+
+  // Инициализация MAX Bridge
+  if (window.WebApp) {
+    try { window.WebApp.ready(); } catch(e) {}
+  }
+</script>
+</body>
+</html>
